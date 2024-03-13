@@ -22,8 +22,7 @@ void printArray(int arr[], int size)
         cout << arr[i] << " "; 
     cout << endl; 
 } 
-  
-// Driver code 
+
 int main() 
 { 
     int arr[] = { 5, 1, 4, 2, 8}; 
