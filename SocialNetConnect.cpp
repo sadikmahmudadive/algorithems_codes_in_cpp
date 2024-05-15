@@ -12,7 +12,8 @@
 using namespace std;
 
 // Simple Graph class to manage users and their friendships
-class Graph {
+class Graph
+{
 private:
     // Vector of vectors to store adjacency list
     vector<vector<int>> adjList;
@@ -20,9 +21,12 @@ private:
     vector<string> usernames;
 
     // Helper function to get the index of a user
-    int getUserIndex(const string& user) {
-        for (int i = 0; i < usernames.size(); i++) {
-            if (usernames[i] == user) {
+    int getUserIndex(const string& user) 
+    {
+        for (int i = 0; i < usernames.size(); i++) 
+        {
+            if (usernames[i] == user) 
+            {
                 return i;
             }
         }
@@ -31,24 +35,28 @@ private:
 
 public:
     // Add a new user to the graph
-    void addUser(const string& user) {
+    void addUser(const string& user) 
+    {
         usernames.push_back(user);
         adjList.push_back(vector<int>());
     }
 
     // Add a friendship (edge) between two users
-    void addFriendship(const string& user, const string& friendUser) {
+    void addFriendship(const string& user, const string& friendUser) 
+    {
         int userIndex = getUserIndex(user);
         int friendUserIndex = getUserIndex(friendUser);
 
-        if (userIndex != -1 && friendUserIndex != -1) {
+        if (userIndex != -1 && friendUserIndex != -1) 
+        {
             adjList[userIndex].push_back(friendUserIndex);
             adjList[friendUserIndex].push_back(userIndex);
         }
     }
 
     // Perform BFS traversal from a given starting user
-    void BFS(const string& startUser) {
+    void BFS(const string& startUser) 
+    {
         int startIndex = getUserIndex(startUser);
         if (startIndex == -1) return;
 
