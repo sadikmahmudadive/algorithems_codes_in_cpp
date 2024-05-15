@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Code/Algorithm",
-      "program": "d:/Code/Algorithm/build/Debug/outDebug",
+      "cwd": "d:/Codes/Algorithm",
+      "program": "d:/Codes/Algorithm/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
