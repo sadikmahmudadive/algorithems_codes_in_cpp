@@ -66,14 +66,17 @@ public:
         visited[startIndex] = true;
         q.push(startIndex);
 
-        while (!q.empty()) {
+        while (!q.empty()) 
+        {
             int userIndex = q.front();
             q.pop();
             cout << usernames[userIndex] << " ";
 
-            for (int i = 0; i < adjList[userIndex].size(); i++) {
+            for (int i = 0; i < adjList[userIndex].size(); i++) 
+            {
                 int friendIndex = adjList[userIndex][i];
-                if (!visited[friendIndex]) {
+                if (!visited[friendIndex]) 
+                {
                     visited[friendIndex] = true;
                     q.push(friendIndex);
                 }
@@ -83,7 +86,8 @@ public:
     }
 
     // Perform DFS traversal from a given starting user
-    void DFS(const string& startUser) {
+    void DFS(const string& startUser) 
+    {
         int startIndex = getUserIndex(startUser);
         if (startIndex == -1) return;
 
@@ -92,18 +96,22 @@ public:
 
         s.push(startIndex);
 
-        while (!s.empty()) {
+        while (!s.empty()) 
+        {
             int userIndex = s.top();
             s.pop();
 
-            if (!visited[userIndex]) {
+            if (!visited[userIndex]) 
+            {
                 visited[userIndex] = true;
                 cout << usernames[userIndex] << " ";
             }
 
-            for (int i = 0; i < adjList[userIndex].size(); i++) {
+            for (int i = 0; i < adjList[userIndex].size(); i++) 
+            {
                 int friendIndex = adjList[userIndex][i];
-                if (!visited[friendIndex]) {
+                if (!visited[friendIndex]) 
+                {
                     s.push(friendIndex);
                 }
             }
@@ -112,7 +120,8 @@ public:
     }
 
     // Suggest friends for a user based on BFS
-    vector<string> suggestFriends(const string& user) {
+    vector<string> suggestFriends(const string& user) 
+    {
         vector<string> suggestions;
         int userIndex = getUserIndex(user);
         if (userIndex == -1) return suggestions;
@@ -123,13 +132,16 @@ public:
         visited[userIndex] = true;
         q.push(userIndex);
 
-        while (!q.empty()) {
+        while (!q.empty()) 
+        {
             int currentIndex = q.front();
             q.pop();
 
-            for (int i = 0; i < adjList[currentIndex].size(); i++) {
+            for (int i = 0; i < adjList[currentIndex].size(); i++) 
+            {
                 int friendIndex = adjList[currentIndex][i];
-                if (!visited[friendIndex]) {
+                if (!visited[friendIndex]) 
+                {
                     visited[friendIndex] = true;
                     suggestions.push_back(usernames[friendIndex]);
                     q.push(friendIndex);
@@ -141,7 +153,8 @@ public:
     }
 };
 
-int main() {
+int main() 
+{
     Graph socialGraph;
     int numUsers;
 
@@ -149,7 +162,8 @@ int main() {
     cin >> numUsers;
 
     // Add users to the graph
-    for (int i = 0; i < numUsers; ++i) {
+    for (int i = 0; i < numUsers; ++i) 
+    {
         string userName;
         cout << "Enter username: ";
         cin >> userName;
@@ -160,7 +174,8 @@ int main() {
         cin >> numFriends;
 
         // Add friendships to the graph
-        for (int j = 0; j < numFriends; ++j) {
+        for (int j = 0; j < numFriends; ++j) 
+        {
             string friendName;
             cout << "Enter friend's username: ";
             cin >> friendName;
@@ -183,7 +198,8 @@ int main() {
     // Suggest friends for the starting user
     vector<string> suggestions = socialGraph.suggestFriends(startUser);
     cout << "Friend suggestions for " << startUser << ": ";
-    for (const auto& suggestion : suggestions) {
+    for (const auto& suggestion : suggestions) 
+    {
         cout << suggestion << " ";
     }
     cout << endl;
